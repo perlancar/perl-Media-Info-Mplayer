@@ -80,7 +80,17 @@ sub get_media_info {
 }
 
 1;
-# ABSTRACT: Use Common interface for Media::Info::*
+# ABSTRACT: Return information on media file/URL using mplayer
+
+=head1 SYNOPSIS
+
+Use directly:
+
+ use Media::Info::Mplayer qw(get_media_info);
+ my $res = get_media_info(media => '/home/steven/celine.avi');
+
+or use via L<Media::Info>.
+
 
 =head1 SEE ALSO
 
