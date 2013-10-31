@@ -91,6 +91,24 @@ Use directly:
 
 or use via L<Media::Info>.
 
+Sample result:
+
+ [
+   200,
+   "OK",
+   {
+     audio_bitrate => 128000,
+     audio_format  => 85,
+     audio_rate    => 44100,
+     duration      => 2081.25,
+     num_channels  => 2,
+     num_chapters  => 0,
+   },
+   {
+     "func.raw_output" => "ID_AUDIO_ID=0\n...",
+   },
+ ]
+
 
 =head1 SEE ALSO
 
