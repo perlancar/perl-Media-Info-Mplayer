@@ -76,7 +76,7 @@ sub get_media_info {
         $info->{lc($_)} = $1 if $stdout =~ /^ID_\Q$_\E=(.+)/m;
     }
 
-    [200, "OK", $info, {raw_output=>$stdout}];
+    [200, "OK", $info, {"func.raw_output"=>$stdout}];
 }
 
 1;
