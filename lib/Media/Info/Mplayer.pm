@@ -1,5 +1,8 @@
 package Media::Info::Mplayer;
 
+# DATE
+# VERSION
+
 use 5.010001;
 use strict;
 use warnings;
@@ -15,13 +18,11 @@ our @EXPORT_OK = qw(
                        get_media_info
                );
 
-# VERSION
-
 our %SPEC;
 
 $SPEC{get_media_info} = {
     v => 1.1,
-    summary => 'Return information on media file/URL',
+    summary => 'Return information on media file/URL, using mplayer',
     args => {
         media => {
             summary => 'Media file/URL',
@@ -80,7 +81,7 @@ sub get_media_info {
 }
 
 1;
-# ABSTRACT: Return information on media file/URL using mplayer
+# ABSTRACT:
 
 =head1 SYNOPSIS
 
