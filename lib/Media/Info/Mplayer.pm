@@ -6,7 +6,7 @@ package Media::Info::Mplayer;
 use 5.010001;
 use strict;
 use warnings;
-use Log::Any '$log';
+use Log::Any::IfLOG '$log';
 
 use Capture::Tiny qw(capture);
 use Log::Any::For::Builtins qw(system);
