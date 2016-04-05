@@ -50,7 +50,7 @@ sub get_media_info {
     my ($stdout, $stderr, $exit) = capture {
         local $ENV{LANG} = "C";
         system("mplayer", "-identify", $media,
-               "-quiet", "-msglevel", "all=0", "-frames", "0");
+               "-quiet", "-nosound", "-msglevel", "all=0", "-frames", "0");
     };
 
     return err(500, "Can't execute mplayer ($exit)") if $exit;
