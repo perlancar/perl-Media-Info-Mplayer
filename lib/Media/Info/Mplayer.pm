@@ -30,6 +30,10 @@ $SPEC{get_media_info} = {
             pos     => 0,
             req     => 1,
         },
+        audio_info => {
+            schema => 'bool',
+            default => 1,
+        },
     },
     deps => {
         prog => 'mplayer',
@@ -39,6 +43,7 @@ sub get_media_info {
     require File::Which;
 
     my %args = @_;
+    my $audio_info = $args{audio_info} // 1;
 
     File::Which::which("mplayer")
           or return err(412, "Can't find mplayer in PATH");
@@ -50,7 +55,9 @@ sub get_media_info {
     my ($stdout, $stderr, $exit) = capture {
         local $ENV{LANG} = "C";
         system("mplayer", "-identify", $media,
-               "-quiet", "-nosound", "-msglevel", "all=0", "-frames", "0");
+               "-quiet",
+               ("-nosound") x ($audio_info ? 0:1),
+               "-msglevel", "all=0", "-frames", "0");
     };
 
     return err(500, "Can't execute mplayer ($exit)") if $exit;
