@@ -69,6 +69,7 @@ sub get_media_info {
     $info->{duration} = $1      if $stdout =~ /^ID_LENGTH=(.+)/m;
     $info->{num_channels} = $1  if $stdout =~ /^ID_AUDIO_NCH=(.+)/m;
     $info->{num_chapters} = $1  if $stdout =~ /^ID_CHAPTERS=(.+)/m;
+    $info->{rotate} = $1        if $stdout =~ /^ID_VID_\d+_ROTATE=(.+)/m;
     #$info->{_audio_format} = $1 if $stdout =~ /^ID_AUDIO_FORMAT=(.+)/m;
     for (qw/
                AUDIO_FORMAT
